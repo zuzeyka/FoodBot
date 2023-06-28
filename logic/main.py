@@ -7,9 +7,11 @@ dp = Dispatcher(bot)
 @dp.message_handler(commands=['start'])
 async def start(message: types.Message):
 	markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-	markup.add(types.KeyboardButton('Order food', web_app=types.WebAppInfo(url='https://www.google.com')))
+	markup.add(types.KeyboardButton('Order food', web_app=types.WebAppInfo(url='https://zuzeyka.github.io/FoodBot/index.html')))
 	await message.reply('Hello! Welcome to Bad Omen!', reply_markup=markup)
 
 @dp.message_handler()
 async def echo(message: types.Message):
 	await message.answer(message.text)
+
+executor.start_polling(dp)
